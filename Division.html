@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Division</title>
+        <script>
+            function divide()
+            {
+                var dividend=parseInt(document.getElementById('n1').value);
+                var divisor=parseInt(document.getElementById('n2').value);
+                var result=dividend/divisor;
+                document.getElementById('result').value=result;
+            }
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <h1>Division Operation</h1>            
+            <label for="n1">Enter dividend value:-</label>
+            <input type="number" id="n1">
+            <label for="n1">Enter divisor value:-</label>
+            <input type="number" id="n2">
+            <button type="button" onclick="divide()">Divide</button>
+            <label for="result">Result:-</label>
+            <input type="textbox" id="result">
+        </form>
+    </body>
+</html>
