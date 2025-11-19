@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Multiplication</title>
+        <script>
+            function Multiply()
+            {
+                var num1=parseInt(document.getElementById('n1').value);
+                var num2=parseInt(document.getElementById('n2').value);
+                var result=num1*num2;
+                document.getElementById('result').value=result;
+            }
+
+        </script>
+    </head>
+    <body>
+        <form>
+            <h1>Multiplication </h1>            
+            <label for="n1">Enter first number:-</label>
+            <input type="number" id="n1">
+            <label for="n2">Enter second number:-</label>
+            <input type="number" id="n2">
+            <button type="button" onclick="Multiply()">Multiply</button>
+            <label for="result">Result:-</label>
+            <input type="textbox" id="result">
+        </form>
+    </body>
+</html>
