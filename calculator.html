@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+    
+    <style>
+        body {
+            background: linear-gradient(rgb(51, 64, 243) ,rgb(209, 4, 255)  );
+            font-family: Arial;
+            text-align: center;
+            padding: 50px;
+            height: 100vh;
+            border: #f2f2f2 dotted 5px;
+
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 350px;
+            margin: auto;
+            border-radius: 25px;
+            box-shadow: 10px 20px 30px 4px rgb(26, 20, 20);
+        }
+
+       input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 2px solid gray;
+            box-sizing: border-box; /* Prevent overflow */
+        }
+        input:focus {
+            outline: none;
+            border-color: #6a5acd;
+            box-shadow: 0 0 8px rgba(106, 90, 205, 0.4);
+        }
+
+        .btn {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            margin: 8px;
+            cursor: pointer;
+            color: white;
+            font-weight: bold;
+            transition: 0.2s ease;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns */
+            gap: 10px; /* space between buttons */
+            margin-top: 15px;
+        }
+
+        .add { background-color: green; }
+        .sub { background-color: red; }
+        .mul { background-color: purple; }
+        .div { background-color: orange; }
+
+        .btn:hover {
+            opacity: 0.8;
+        }
+
+        #result {
+            background: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function calculate(op) {
+            let a = Number(document.getElementById('num1').value);
+            let b = Number(document.getElementById('num2').value);
+
+            if (isNaN(a) || isNaN(b)) {
+                document.getElementById('result').value = "❌ Enter both numbers!";
+                return;
+            }
+
+            let result;
+
+            switch (op) {
+                case 'add': result = a + b; break;
+                case 'sub': result = a - b; break;
+                case 'mul': result = a * b; break;
+                case 'div': 
+                    if (b === 0) {
+                        result = "Cannot divide by zero!";
+                    } else {
+                        result =(a / b).toFixed(2);
+                    }
+                    break;
+            }
+
+            document.getElementById('result').value = result;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Simple Calculator</h2>
+
+        <input type="number" id="num1" placeholder="Enter first number">
+        <input type="number" id="num2" placeholder="Enter second number">
+
+        <div class="buttons">
+            <button class="btn add" onclick="calculate('add')">Add</button>
+            <button class="btn sub" onclick="calculate('sub')">Subtract</button>
+            <button class="btn mul" onclick="calculate('mul')">Multiply</button>
+            <button class="btn div" onclick="calculate('div')">Divide</button>
+        </div>
+
+        <input type="text" id="result" placeholder="Result" readonly>
+    </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoom Effect Picture</title>
+    <style>
+    body {
+            border: 10px double rgb(246, 144, 2);
+            margin: 0;
+            padding: 20px;
+            background-color: #112a52;
+            text-align: center;
+            font-family: 'Franklin Gothic Medium';
+            color: beige;
+        }
+    img {
+        width: 500px;
+        margin: 50px auto; 
+        display: block; 
+        transition: scale(0.5);
+        border-radius: 20px;
+        height: 450px;
+        box-shadow: 5px 5px 10px blanchedalmond;
+    }
+    
+    </style>
+    <script>
+        function zoomeffect()
+        {
+            document.getElementById('img1').style.transform='scale(1.4)';
+        }
+        function normaleffect(){
+            document.getElementById('img1').style.transform="scale(1)";
+        }
+    </script>
+    </head>
+    <body>
+        <h1>ZOOM EFFECT</h1>
+        <img id="img1" src="images/nature.jpg"  alt="nature image" onclick="zoomeffect()" onmouseleave="normaleffect()" >
+    </body>
