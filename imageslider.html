@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Image Slider</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: fantasy;
+            height: 100vh;
+            border: 15px dotted rgb(255, 0, 0);
+            padding: 50px;
+            background-image: linear-gradient(rgb(244, 136, 3), rgb(255, 196, 0));
+        }
+
+        .slider-container img {
+            width: 500px;
+            height: 400px;
+            border-radius: 20px;
+            box-shadow: 10px 20px 40px 5px rgb(62, 60, 60);
+            margin-bottom: 20px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .buttons button {
+            padding: 10px;
+            margin: 20px 10px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            background: #ff4000;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #9f2810;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <h1>Image Slider</h1>
+        <img id="slider" src="images/img1.jpg" alt="Slide Image">
+    </div>
+
+    <div class="buttons">
+        <button id="prev" aria-label="Previous Image"><</button>
+        <button id="next" aria-label="Next Image">></button>
+    </div>
+
+<script>
+    const images = [
+        "images/img1.jpg", "images/img2.jpg", "images/img3.jpg",
+        "images/img4.jpg", "images/img5.jpg", "images/img6.jpg"
+    ];
+    
+    let index = 0;
+
+    function showImage() {
+        const slider = document.getElementById("slider");
+        slider.style.opacity = 0;
+
+        setTimeout(() => {
+            slider.src = images[index];
+            slider.style.opacity = 1;
+        }, 200);
+    }
+
+    function nextImage() {
+        index = (index + 1) % images.length;
+        showImage();
+    }
+
+    function prevImage() {
+        index = (index - 1 + images.length) % images.length;
+        showImage();
+    }
+
+    document.getElementById("next").addEventListener("click", nextImage);
+    document.getElementById("prev").addEventListener("click", prevImage);
+</script>
+
+</body>
+</html>
