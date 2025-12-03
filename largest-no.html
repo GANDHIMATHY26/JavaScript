@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Largest Number Checker</title>
+
+    <style>
+        body {
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial;
+        }
+
+        .container {
+            background: white;
+            width: 300px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input:focus{
+            border:solid 2px #0056b3;
+            outline: none;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+   
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h3>Find Largest Number</h3>
+
+    <input type="number" id="num1" placeholder="Enter Number 1">
+    <input type="number" id="num2" placeholder="Enter Number 2">
+
+    <button onclick="findLargest()">Get Largest</button>
+
+    <p id="result"></p>
+</div>
+
+<script>
+    function findLargest() {
+        let a = Number(document.getElementById("num1").value);
+        let b = Number(document.getElementById("num2").value);
+
+        if (a > b) {
+            document.getElementById("result").innerHTML = "Largest = " + a;
+        } else if (b > a) {
+            document.getElementById("result").innerHTML = "Largest = " + b;
+        } else {
+            document.getElementById("result").innerHTML = "Both are Equal";
+        }
+    }
+</script>
+
+</body>
+</html>
